@@ -103,9 +103,6 @@
     
     
     //更新左视图的位置
-//    CGRect frame = self.leftVC.view.frame;
-//    frame.origin.x = -self.leftWidth;
-//    self.leftVC.view.frame = frame;
     self.leftVC.view.transform = CGAffineTransformMakeTranslation(-self.leftWidth, 0);
     
     //给mainVC子视图添加手势
@@ -129,12 +126,14 @@
     
     //手势所在的x
     CGFloat originX = [gesture translationInView:gesture.view].x;
-//    NSLog(@"%f",originX);
-    if (originX >= self.leftWidth) {
-        //滑动的范围超过leftWidth是，不做任何处理
-        return;
-    }
+    NSLog(@"%f",originX);
     
+    if (originX < 0) {
+        originX = 0;
+    }
+    if (originX > self.leftWidth) {
+        originX = self.leftWidth;
+    }
     if (gesture.state == UIGestureRecognizerStateChanged) {
         //一直在改变
         self.mainVC.view.transform = CGAffineTransformMakeTranslation(originX, 0);
@@ -142,7 +141,7 @@
     }
     
     else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
-        if (originX > screenW * 0.5) {
+        if (self.mainVC.view.frame.origin.x > screenW * 0.5) {
             //当所在的位置位于屏幕一半右侧时，显示左边视图
             [self showLeftViewController];
         }else {
@@ -166,29 +165,31 @@
     
     //手势所在的x
     CGFloat originX = [gesture translationInView:gesture.view].x;
-    NSLog(@"%f",originX);
+//    NSLog(@"%f",originX);
     
     if (originX > 0) {
-        //向右滑动时，不做任何处理
-        return;
-    }else {
-        
-        CGFloat distance = self.leftWidth - ABS(originX);
-        
-        if (gesture.state == UIGestureRecognizerStateChanged) {
-            //一直在改变
-            self.mainVC.view.transform = CGAffineTransformMakeTranslation(MAX(0, distance), 0);
-            self.leftVC.view.transform = CGAffineTransformMakeTranslation(originX, 0);
-        }
-        
-        else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
-            if (self.mainVC.view.frame.origin.x > screenW * 0.5) {
-                //当所在的位置位于屏幕一半右侧时，显示左边视图
-                [self showLeftViewController];
-            }else {
-                //当所在的位置位于屏幕一半的左侧时，隐藏左边视图
-                [self hiddenLeftViewController];
-            }
+        originX = 0;
+    }
+    
+    if (originX < -self.leftWidth) {
+        originX = -self.leftWidth;
+    }
+    
+    CGFloat distance = self.leftWidth - ABS(originX);
+    
+    if (gesture.state == UIGestureRecognizerStateChanged) {
+        //一直在改变
+        self.mainVC.view.transform = CGAffineTransformMakeTranslation(distance, 0);
+        self.leftVC.view.transform = CGAffineTransformMakeTranslation(originX, 0);
+    }
+    
+    else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
+        if (self.mainVC.view.frame.origin.x > screenW * 0.5) {
+            //当所在的位置位于屏幕一半右侧时，显示左边视图
+            [self showLeftViewController];
+        }else {
+            //当所在的位置位于屏幕一半的左侧时，隐藏左边视图
+            [self hiddenLeftViewController];
         }
     }
 }
