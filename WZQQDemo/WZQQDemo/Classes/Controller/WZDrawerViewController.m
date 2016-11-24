@@ -208,4 +208,17 @@
     }
     return _corverButton;
 }
+
+/**
+ 跳转到下个页面
+ 
+ @param vc 即将显示的视图控制器
+ */
+- (void)pushToNextViewController:(UIViewController *)vc {
+    NSLog(@"%s",__func__);
+    [self hiddenLeftViewController];
+    
+//    self.mainVC.selectedViewController UINavigationController
+    [self.mainVC.selectedViewController pushViewController:vc animated:NO];
+}
 @end

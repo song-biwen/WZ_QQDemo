@@ -34,4 +34,11 @@
  */
 - (void)showLeftViewController;
 
+
+/**
+ 跳转到下个页面
+
+ @param vc 即将显示的视图控制器
+ */
+- (void)pushToNextViewController:(UIViewController *)vc;
 @end

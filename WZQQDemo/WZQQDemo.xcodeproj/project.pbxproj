@@ -16,6 +16,7 @@
 		4C1D06061DE57D4E00881BBF /* WZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D06051DE57D4E00881BBF /* WZMainViewController.m */; };
 		4C1D06091DE57D5D00881BBF /* WZLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D06081DE57D5D00881BBF /* WZLeftViewController.m */; };
 		4C1D060C1DE582E700881BBF /* WZMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D060B1DE582E700881BBF /* WZMessageViewController.m */; };
+		4C947ABC1DE6728100B6D486 /* WZHelloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C947ABB1DE6728100B6D486 /* WZHelloViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		4C1D06081DE57D5D00881BBF /* WZLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZLeftViewController.m; sourceTree = "<group>"; };
 		4C1D060A1DE582E700881BBF /* WZMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMessageViewController.h; sourceTree = "<group>"; };
 		4C1D060B1DE582E700881BBF /* WZMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMessageViewController.m; sourceTree = "<group>"; };
+		4C947ABA1DE6728100B6D486 /* WZHelloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHelloViewController.h; sourceTree = "<group>"; };
+		4C947ABB1DE6728100B6D486 /* WZHelloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHelloViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				4C1D06081DE57D5D00881BBF /* WZLeftViewController.m */,
 				4C1D060A1DE582E700881BBF /* WZMessageViewController.h */,
 				4C1D060B1DE582E700881BBF /* WZMessageViewController.m */,
+				4C947ABA1DE6728100B6D486 /* WZHelloViewController.h */,
+				4C947ABB1DE6728100B6D486 /* WZHelloViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				4C1D060C1DE582E700881BBF /* WZMessageViewController.m in Sources */,
 				4C1D05EB1DE57AA400881BBF /* AppDelegate.m in Sources */,
 				4C1D06091DE57D5D00881BBF /* WZLeftViewController.m in Sources */,
+				4C947ABC1DE6728100B6D486 /* WZHelloViewController.m in Sources */,
 				4C1D06061DE57D4E00881BBF /* WZMainViewController.m in Sources */,
 				4C1D05E81DE57AA400881BBF /* main.m in Sources */,
 			);
